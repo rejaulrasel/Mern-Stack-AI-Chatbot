@@ -1,7 +1,26 @@
 import { Box, Button, Typography } from '@mui/material';
 import CustomizedInput from '../components/shared/CustomizedInput';
 import { GrLogin } from "react-icons/gr";
+import React from 'react';
+import { useAuth } from '../context/AuthContext';
+import toast from 'react-hot-toast';
 const Login = () => {
+    const auth = useAuth();
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formdata = new FormData(e.currentTarget);
+        const email = formdata.get('email') as string;
+        const password = formdata.get('password') as string;
+        try {
+            toast.loading("Signing In", { id: "login" })
+            await auth?.login(email, password);
+            toast.success("Signed In", { id: "login" })
+        } catch (error) {
+            console.log(error);
+            toast.error("Signing In failed", { id: "login" })
+        }
+
+    }
     return (
         <Box width={"100%"} height={"100%"} display="flex" flex={1}>
             <Box padding={8} mt={8} display={{ md: "flex", sm: "none", xs: "none" }}>
@@ -15,6 +34,7 @@ const Login = () => {
                 ml={"auto"}
                 mt={16}>
                 <form
+                    onSubmit={handleSubmit}
                     style={{
                         margin: "auto",
                         padding: "30px",
