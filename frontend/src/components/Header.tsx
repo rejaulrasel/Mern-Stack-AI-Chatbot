@@ -10,7 +10,7 @@ const Header = () => {
     <AppBar
       sx={{ bgcolor: "transparent", position: "static", boxShadow: "none" }}
     >
-      <Toolbar sx={{ display: "flex" }}>
+      <Toolbar sx={{ display: "flex" }} style={{fontSize:'20px'}}>
         <Logo />
         <div style={{display:"flex"}}>
           {auth?.isLoggedIn ? (

@@ -2,6 +2,7 @@ import { Box, Avatar, Typography, Button, IconButton } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import { red } from "@mui/material/colors";
 import Chatitem from "../components/chat/chatitem";
+import { IoMdSend } from 'react-icons/io';
 const chatMessages = [
     {
         role: "user",
@@ -140,6 +141,35 @@ const Chat = () => {
                         <Chatitem content={chat.content} role={chat.role} key={index} />
                     ))}
                 </Box>
+
+
+                <div
+                    style={{
+                        width: "100%",
+                        borderRadius: 8,
+                        backgroundColor: "rgb(17,27,39)",
+                        display: "flex",
+                        margin: "auto",
+                    }}
+                >
+                    {"  "}
+                    <input
+                        type="text"
+                        style={{
+                            width: "100%",
+                            backgroundColor: "transparent",
+                            padding: "30px",
+                            border: "none",
+                            outline: "none",
+                            color: "white",
+                            fontSize: "20px",
+                        }}
+                    />
+                    <IconButton sx={{ color: "white", mx: 1 }}>
+                        <IoMdSend style={{fontSize:'32px'}} />
+                    </IconButton>
+
+                </div>
 
 
             </Box>

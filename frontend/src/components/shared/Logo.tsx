@@ -21,6 +21,7 @@ const Logo = () => {
                 />
             </Link>
                 <Typography
+                style={{fontSize:'24px'}}
                     sx={{
                         display: { md: "block", sm: "none", xs: "none" }, mr: "auto", fontWeight: "800", textShadow: "2px 2px 20px #000",
                     }}
