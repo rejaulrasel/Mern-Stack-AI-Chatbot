@@ -21,11 +21,14 @@ export const loginValidator = [
     body("email").trim().isEmail().withMessage('Email is required'),
     body("password").trim().isLength({ min: 6 }).withMessage('Password should at least 6 characters long'),
 
-]
+];
 
 export const signupValidator = [
     body("name").notEmpty().withMessage('Name is required'),
     ...loginValidator,
 
-]
+];
 
+export const chatCompletionValidator = [
+    body("message").notEmpty().withMessage("Message  is required"),
+  ];
